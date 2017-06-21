@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/gwb/tem/epoll-example/src/epoll.cpp
+stdio.h
+-
+string.h
+-
+netdb.h
+-
+unistd.h
+-
+sys/epoll.h
+-
+errno.h
+-
+cassert
+-
+thread
+-
+net_utils.hpp
+/home/gwb/tem/epoll-example/src/net_utils.hpp
+ring_buffer.hpp
+/home/gwb/tem/epoll-example/src/ring_buffer.hpp
+
+/home/gwb/tem/epoll-example/src/net_utils.hpp
+
+/home/gwb/tem/epoll-example/src/ring_buffer.hpp
+x86intrin.h
+-
+atomic
+-
+cinttypes
+-
+cstdio
+-
+

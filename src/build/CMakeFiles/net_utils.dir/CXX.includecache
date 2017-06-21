@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/gwb/tem/epoll-example/src/net_utils.cpp
+fcntl.h
+-
+errno.h
+-
+netdb.h
+-
+stdio.h
+-
+string.h
+-
+sys/socket.h
+-
+sys/types.h
+-
+unistd.h
+-
+

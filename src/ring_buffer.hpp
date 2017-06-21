@@ -14,16 +14,16 @@ namespace processor {
 // A simple ring buffer for single producers and single consumers.
 // Does not support parallel consumers for now.
 template<typename T>
-class RingBuffer {
+class RingBuffer {             //黄金缓冲的定义
 
 public:
   // Events_size must be a power of two.
   explicit RingBuffer(uint64_t event_size) :
-    event_size_(event_size),
-    publisher_sequence_(-1),
-    cached_consumer_sequence_(-1),
-    events_(new T[event_size]),
-    consumer_sequence_(-1) {
+    event_size_(event_size),        //事件大小
+    publisher_sequence_(-1),        //发布序列
+    cached_consumer_sequence_(-1),  //客户端时间序列缓冲
+    events_(new T[event_size]),     //事件组
+    consumer_sequence_(-1) {        //客户端的索引
   }
 
   // No copy constructor.
@@ -32,7 +32,8 @@ public:
 
   // Used to get an event for a given sequence.
   //Can be called by both the producer and consumer.
-  inline T* get(int64_t sequence) {
+
+  inline T* get(int64_t sequence) {        //获取事件地址，重点
     return &events_[sequence & (event_size_ - 1)];  // size - 1 is the mask here.
   }
 
@@ -65,7 +66,7 @@ public:
   }
 
   // Called by the producer after it has set the correct event entries.
-  inline void publish(int64_t sequence) {
+  inline void publish(int64_t sequence) {            //将获取的序列发布
     publisher_sequence_.store(sequence, std::memory_order::memory_order_release);
   }
 

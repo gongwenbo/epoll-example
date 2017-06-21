@@ -1,0 +1,1 @@
+/usr/bin/c++   -pthread -std=c++0x -march=native -O2 -g -Wall      CMakeFiles/epoll.dir/epoll.cpp.o  -o epoll -rdynamic libnet_utils.so -Wl,-rpath,/home/gwb/tem/epoll-example/src/build 
